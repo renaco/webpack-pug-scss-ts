@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
     "awesome-typescript-loader": "^5.0.0",
     "circular-dependency-plugin": "^5.0.2",
     "clean-webpack-plugin": "^0.1.19",
@@ -17,6 +19,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
+    "react-dom": "^16.4.1",
     "typescript": "^2.9.2",
     "typescript-eslint-parser": "^16.0.1",
     "webpack": "^4.16.1",
@@ -28,6 +31,7 @@
     "env-cmd": "^8.0.1",
     "eslint": "^4.19.1",
     "node-sass": "^4.9.0",
+    "react": "^16.4.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5"
