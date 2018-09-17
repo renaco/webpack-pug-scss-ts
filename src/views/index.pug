@@ -4,12 +4,60 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet' href='http://pagoefectivo-dev-web-portal.s3-website-eu-west-1.amazonaws.com/css/bootstrap.min.css')
     title Demo Webpack Inline
   body
     h1
       | Title Page
-    h2
-      | Site demo here 
-      span#showEnv
-    p 
-      | Loremms
+    //- h2
+      | Site demo here
+      //- span#showEnv
+
+    .container
+      form.block.mbr-form.formulario-row(action='' method='post' onsubmit="validateForm()")
+        .row
+          .col-md-12
+            input.form-control.input(type='text', name='name', data-form-field='Name', placeholder='Nombre y apellidos *', required)
+          .col-md-12
+            input.form-control.input(type='text', name='phone', data-form-field='Phone', placeholder='Teléfono *', required)
+          .col-md-12
+            input.form-control.input(type='text', name='email', data-form-field='Email', placeholder='Email *', required)
+          .col-md-12
+            input.form-control.input(type='text', name='company', data-form-field='Phone', placeholder='Empresa o razón social')
+          .col-md-12
+            input.form-control.input(type='text', name='website', data-form-field='Phone', placeholder='Sitio web')
+          .col-md-12
+            textarea.form-control.input(name='message', rows='3', data-form-field='Message', placeholder='Mensaje *', style='resize:none', required)
+          .col-md-12
+            p.experiencia-venta
+              | ¿Tiene experiencia en ventas online?
+              span(style='float: right;')
+                input(type='radio' name='experiencia' id='1' value='Si')
+                label(for='1')
+                  | Si
+                | &nbsp&nbsp
+                input(type='radio' name='experiencia' id='2' value='No', checked='checked')
+                label(for='2')
+                  | No
+            p.terminos-condiciones
+              input(type='checkbox' id='3' required)
+              | &nbsp&nbsp
+              label(for='3')
+                |  Acepto los
+                a(href='#')
+                  span(style='text-decoration:underline; color:#000; font-weight: 600;')  Términos y Condiciones
+                |  y
+                a(href='#')
+                  span(style='text-decoration:underline; color:#000; font-weight: 600;')  Políticas de  Privacidad
+                |  de PagoEfectivo.
+          .input-group-btn.col-md-12(style='margin-top: 10px;')
+            button.btn.btn-primary.btn-form.display-4(type='submit')
+              | Enviar
+        //- .row
+          .col-md-12
+            .alert.alert-success(role='alert')
+              strong ¡Mensaje enviado
+              |  satisfactoriamente!
+            .alert.alert-danger(role='alert')
+              strong ¡Ha ocurrido un error
+              |  en el envío!
