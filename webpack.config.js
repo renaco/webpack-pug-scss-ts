@@ -39,7 +39,6 @@ const PATHS = {
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const cssPreprocessorLoader = { loader: 'fast-sass-loader'};
 /*
 //
 // Clean Dist
@@ -49,7 +48,7 @@ const cssPreprocessorLoader = { loader: 'fast-sass-loader'};
 const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: 
+	entry:
 		PATHS.src + '/scripts/index.ts'
 	,
 
