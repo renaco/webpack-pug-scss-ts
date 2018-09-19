@@ -1,4 +1,4 @@
-// import './../styles/main.scss';
+import './../styles/main.scss';
 import * as CONST from './const';
 import { validateThisForm } from './validate'
 

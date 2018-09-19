@@ -6,17 +6,20 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+// const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
 const PATHS = {
-  entries: path.join(__dirname, 'src/scripts'),
-  src: path.join(__dirname, 'src'),
-  dist: path.join(__dirname, 'dist')
+  // entries: path.join(__dirname, '/src/scripts'),
+  // src: path.join(__dirname, '/src'),
+  // dist: path.join(__dirname, '/dist')
+  entries: __dirname + '/src/scripts',
+  src: __dirname + '/src',
+  dist: __dirname + '/dist'
 };
 
 const extractPlugin = new ExtractTextPlugin({
-  filename: '[name].css',
+  filename: '/css/[name].css',
   allChunks: true
 })
 
@@ -29,10 +32,14 @@ function compileTemplate(name) {
 }
 
 module.exports = {
-  entry: {
-    index: PATHS.entries + '/index.ts',
-    notFound: PATHS.entries + '/notFound.ts'
-  },
+  entry: [
+    './src/styles/main.scss',
+    PATHS.src + '/scripts/index.ts'
+    // {
+    //   index: PATHS.entries + '/index.ts',
+    //   notFound: PATHS.entries + '/notFound.ts'
+    // }
+  ],
   output: {
     path: PATHS.dist,
     filename: 'js/[name].js'
@@ -46,12 +53,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss|css$/,
+        test: /\.(scss|css)$/,
         use: extractPlugin.extract({
           use: [
             'css-loader',
-            'sass-loader',
-            'postcss-loader'
+            'sass-loader'
+            // 'postcss-loader'
           ]
         })
       },
@@ -74,11 +81,7 @@ module.exports = {
   plugins: [
     compileTemplate('index'),
     compileTemplate('404'),
-    // extractPlugin,
-    // new ExtractTextPlugin({
-    //   filename: PATHS.dist + 'css/[name].css',
-    //   allChunks: true
-    // }),
+    extractPlugin,
     new CleanPlugin(PATHS.dist),
     new UglifyJSPlugin(),
     new CheckerPlugin(),

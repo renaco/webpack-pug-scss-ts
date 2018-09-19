@@ -10,7 +10,7 @@
     "eslint-config-und": "^0.0.2",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-typescript": "^0.12.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fast-sass-loader": "^1.4.5",
     "html-loader": "^0.5.5",
     "html-webpack-inline-source-plugin": "^0.0.10",
