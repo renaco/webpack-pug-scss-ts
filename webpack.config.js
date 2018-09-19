@@ -15,6 +15,11 @@ const PATHS = {
   dist: path.join(__dirname, 'dist')
 };
 
+const extractPlugin = new ExtractTextPlugin({
+  filename: '[name].css',
+  allChunks: true
+})
+
 function compileTemplate(name) {
   return new HtmlWebpackPlugin({
     filename: name + '.html',
@@ -42,11 +47,13 @@ module.exports = {
       },
       {
         test: /\.scss|css$/,
-        use: [
-          'css-loader',
-          'sass-loader',
-          'style-loader'
-        ]
+        use: extractPlugin.extract({
+          use: [
+            'css-loader',
+            'sass-loader',
+            'postcss-loader'
+          ]
+        })
       },
       {
         enforce: 'pre',
@@ -67,11 +74,12 @@ module.exports = {
   plugins: [
     compileTemplate('index'),
     compileTemplate('404'),
+    // extractPlugin,
     // new ExtractTextPlugin({
     //   filename: PATHS.dist + 'css/[name].css',
     //   allChunks: true
     // }),
-    // new CleanPlugin(PATHS.dist),
+    new CleanPlugin(PATHS.dist),
     new UglifyJSPlugin(),
     new CheckerPlugin(),
     new CircularDependencyPlugin({
@@ -79,7 +87,7 @@ module.exports = {
       failOnError: true,
       cwd: process.cwd()
     }),
-    new HtmlWebpackInlineSourcePlugin()
+    // new HtmlWebpackInlineSourcePlugin()
   ],
   mode: 'production',
   devServer: {

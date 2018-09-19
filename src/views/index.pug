@@ -10,7 +10,7 @@ html(lang='en')
     a(href='/')
       h1
         | Title Page
-    //- h2
+    h2
       | Site demo here
       //- span#showEnv
 
@@ -20,9 +20,9 @@ html(lang='en')
           .col-md-12
             input.form-control.input(type='text', name='name', data-form-field='Name', placeholder='Nombre y apellidos *', required)
           .col-md-12
-            input.form-control.input(type='text', name='phone', data-form-field='Phone', placeholder='Teléfono *', required)
+            input.form-control.input(type='text', name='phone', data-form-field='Phone', placeholder='Teléfono *', pattern='[0-9]{10}', maxlength='10', required)
           .col-md-12
-            input.form-control.input(type='text', name='email', data-form-field='Email', placeholder='Email *', required)
+            input.form-control.input(type='text', name='email', data-form-field='Email', placeholder='Email *', pattern='aaa' required)
           .col-md-12
             input.form-control.input(type='text', name='company', data-form-field='Phone', placeholder='Empresa o razón social')
           .col-md-12
@@ -44,9 +44,9 @@ html(lang='en')
               input(type='checkbox' id='3' required)
               | &nbsp&nbsp
               label(for='3')
-                |  Acepto los
+                |  Acepto los 
                 a(href='#')
-                  span(style='text-decoration:underline; color:#000; font-weight: 600;')  Términos y Condiciones
+                  span(style='text-decoration:underline; color:#000; font-weight: 600;') Términos y Condiciones
                 |  y
                 a(href='#')
                   span(style='text-decoration:underline; color:#000; font-weight: 600;')  Políticas de  Privacidad
