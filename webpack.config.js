@@ -49,8 +49,8 @@ const cssPreprocessorLoader = { loader: 'fast-sass-loader'};
 const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: 
-		PATHS.src + '/scripts/index.ts'
+	entry:
+		PATHS.src + '/scripts/index.tsx'
 	,
 
 	output: {
@@ -92,7 +92,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['.ts', '.js']
+		extensions: ['.tsx', '.js']
 	},
 
 	plugins: [

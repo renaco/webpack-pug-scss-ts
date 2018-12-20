@@ -2,12 +2,24 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "outDir": "./dist"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["*"]
+    },
+    "outDir": "./dist",
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es2015",
+      "es2015.promise"
+    ]
   },
   "include": [
     "src/scripts/**/*",
   ],
   "exclude": [
-    "./node_modules"
+    "./node_modules",
+    "stories"
   ]
 }
