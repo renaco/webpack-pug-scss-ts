@@ -19,8 +19,8 @@
     "pug-loader": "^2.4.0",
     "typescript": "^2.9.2",
     "typescript-eslint-parser": "^16.0.1",
-    "webpack": "^4.16.1",
-    "webpack-cli": "^3.0.8",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
