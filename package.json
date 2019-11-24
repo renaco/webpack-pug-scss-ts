@@ -21,9 +21,7 @@
     "typescript-eslint-parser": "^16.0.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.4"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.1.4",
     "css-loader": "^1.0.0",
     "env-cmd": "^8.0.1",
     "eslint": "^4.19.1",
@@ -31,6 +29,8 @@
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5"
+  },
+  "dependencies": {
   },
   "scripts": {
     "start": "webpack-dev-server",
