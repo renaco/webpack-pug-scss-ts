@@ -1,1 +1,1 @@
-console.log('load', this)
+'use strict';

@@ -28,8 +28,8 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
  */
 
 const PATHS = {
-	src: path.join(__dirname, 'src'),
-	dist: path.join(__dirname, 'dist')
+  src: path.join(__dirname, 'src'),
+  dist: path.join(__dirname, 'dist')
 };
 
 /*
@@ -39,98 +39,100 @@ const PATHS = {
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const cssPreprocessorLoader = { loader: 'fast-sass-loader'};
 /*
 //
 // Clean Dist
 //
 */
 
-const CleanPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: 
-		PATHS.src + '/scripts/index.ts'
-	,
+  entry:
+    PATHS.src + '/scripts/index.ts'
+  ,
 
-	output: {
-		path: PATHS.dist
-	},
+  output: {
+    path: PATHS.dist
+  },
 
-	module: {
-		rules: [
-			{
-				test: /\.pug$/,
-				use: [
-					'pug-loader'
-				]
-			},
+  module: {
+    rules: [
+      {
+        test: /\.pug$/,
+        use: [
+          'pug-loader'
+        ]
+      },
 
-			{
-				test: /\.scss|css$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'sass-loader'
-				]
-			},
+      {
+        test: /\.scss|css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
 
-			{
-				enforce: 'pre',
-				test: /\.tsx?$/,
-				exclude: /node_modules/,
-				loader: 'eslint-loader'
-			},
+      {
+        enforce: 'pre',
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
 
-			{
-				test: /\.tsx?$/,
-				loader: 'awesome-typescript-loader',
-				exclude: /(node_modules)/
-			}
+      {
+        test: /\.tsx?$/,
+        loader: 'awesome-typescript-loader',
+        exclude: /(node_modules)/
+      }
+    ]
+  },
 
-		]
-	},
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
 
-	resolve: {
-		extensions: ['.ts', '.js']
-	},
+  plugins: [
+    new CleanWebpackPlugin({
+      dry: true,
+      cleanOnceBeforeBuildPatterns: PATHS.dist
+    }
+    ),
+    new UglifyJSPlugin(),
+    new CheckerPlugin(),
+    new CircularDependencyPlugin({
+      exclude: /a\.ts|node_modules/,
+      failOnError: true,
+      cwd: process.cwd()
+    }),
+    new HtmlWebpackPlugin({
+      template: PATHS.src + '/views/index.pug',
+      inlineSource: '.(js|css)'
+    }),
+    new HtmlWebpackInlineSourcePlugin()
+  ],
 
-	plugins: [
-		new CleanPlugin(PATHS.dist),
-		new UglifyJSPlugin(),
-		new CheckerPlugin(),
-		new CircularDependencyPlugin({
-			exclude: /a\.ts|node_modules/,
-			failOnError: true,
-			cwd: process.cwd()
-		}),
-		new HtmlWebpackPlugin({
-			template: PATHS.src + '/views/index.pug',
-			inlineSource: '.(js|css)'
-		}),
-		new HtmlWebpackInlineSourcePlugin()
-	],
+  mode: 'production',
 
-	mode: 'production',
+  devServer: {
+    contentBase: PATHS.dist,
+    watchContentBase: true
+  },
 
-	devServer: {
-		contentBase: PATHS.dist,
-		watchContentBase: true
-	},
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      name: false,
 
-	optimization: {
-		splitChunks: {
-			chunks: 'async',
-			minSize: 30000,
-			minChunks: 1,
-			name: false,
-
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				}
-			}
-		}
-	}
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        }
+      }
+    }
+  }
 };
