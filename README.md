@@ -16,8 +16,9 @@ A webpack 4 boilerplate for building web apps.
 * Start developing
 * When you are done, run `yarn run build` to get the prod version of your app
 
-## To Do 
+## To Do
 In progress...
 
-* [ ] Grid System
-* [ ] .env
+[For iframe purpose set into apache, ngnix X-Frame-Options](https://stackoverflow.com/questions/27358966/how-to-set-x-frame-options-on-iframe)
+
+[for client use this chrome complement](https://chrome.google.com/webstore/search/X-Frame-Options?hl=en-US)

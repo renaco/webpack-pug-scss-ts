@@ -1,12 +1,22 @@
 body {
-  background: #cacaca;
-  font-family: 'Arial', serif;
+  margin: 0;
+  padding: 0;
 }
 
-h2 {
-  color: #173d00;
+header {
+  height: 10vh;
 }
 
-h1 {
-  color: rgb(59, 59, 176);
+.iframe-container {
+  overflow: hidden;
+  height: 100vh - 10vh;
+  position: relative;
+  iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }

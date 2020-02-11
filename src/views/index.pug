@@ -1,15 +1,12 @@
 doctype html
-html(lang='en')
+html(lang='es')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    title Webpack demo inline
+    title Iframe responsive
   body
-    h1
-      | Title page
-    h2
-      | Site demo here
-      span#showEnv
-    p
-      | Eiusmod aliquip occaecat id nisi sit sint laborum Lorem elit eiusmod ullamco. Sint enim consequat non occaecat esse do sint ullamco labore amet occaecat sunt. Laboris irure esse aliquip laboris. Lorem laboris minim quis dolore enim ullamco commodo. Irure aliquip est labore non eiusmod laborum incididunt esse nostrud Lorem ad consequat.
+    header
+      h2 Title from organization
+    .iframe-container
+      iframe(src='http://localhost:3000' frameborder='0')
