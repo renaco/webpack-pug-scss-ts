@@ -1,3 +1,4 @@
+require('dotenv').config()
 const webpack = require('webpack');
 const path = require('path');
 
@@ -8,8 +9,6 @@ const path = require('path');
  * https://github.com/webpack-contrib/uglifyjs-webpack-plugin
  *
  */
-
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -31,6 +30,8 @@ const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist')
 };
+
+const html = PATHS.src + '/views/index.pug';
 
 /*
 *
@@ -99,16 +100,18 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: PATHS.dist
     }
     ),
-    new UglifyJSPlugin(),
     new CheckerPlugin(),
     new CircularDependencyPlugin({
+      cwd: process.cwd(),
       exclude: /a\.ts|node_modules/,
-      failOnError: true,
-      cwd: process.cwd()
+      failOnError: true
     }),
     new HtmlWebpackPlugin({
-      template: PATHS.src + '/views/index.pug',
-      inlineSource: '.(js|css)'
+      // baseUrl: process.env.BASE_URL,
+      inlineSource: '.(js|css)',
+      inject: false,
+      template: html,
+      // token: process.env.TOKEN
     }),
     new HtmlWebpackInlineSourcePlugin()
   ],

@@ -1,3 +1,6 @@
+//- - const baseUrl = self.htmlWebpackPlugin.options.baseUrl
+//- - const token = self.htmlWebpackPlugin.options.token
+
 doctype html
 html(lang='es')
   head
@@ -8,5 +11,15 @@ html(lang='es')
   body
     header
       h2 Title from organization
+        href=`https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt`
+      a.link(
+        target='_blank'
+        )!= token
+
     .iframe-container
-      iframe(src='http://localhost:3000' frameborder='0')
+      //- src=`https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt`
+      iframe(
+        src="https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt"
+        frameborder='0'
+        height='600'
+        )

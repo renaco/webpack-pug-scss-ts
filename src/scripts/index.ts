@@ -5,8 +5,4 @@ let domain: string = `dev.golazzos.com`;
 let showEnv: any = <HTMLSpanElement>document.querySelector('#showEnv');
 let myLink: string = ` www.${domain}/${myUrl}`;
 
-(() => {
-  showEnv.innerText = `${myLink} `;
-})()
-
-console.log(' is the beginning ' + myLink, CONST.LOCAL_ENV);
+console.log('Is the beginning ');
