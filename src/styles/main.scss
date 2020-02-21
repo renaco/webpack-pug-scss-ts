@@ -3,6 +3,10 @@ body, html {
   padding: 0;
 }
 
+h2 {
+  word-wrap: break-all;
+}
+
 header {
   height: 10vh;
 }
