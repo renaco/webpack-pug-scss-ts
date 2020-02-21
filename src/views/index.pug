@@ -1,5 +1,10 @@
 //- - const baseUrl = self.htmlWebpackPlugin.options.baseUrl
 //- - const token = self.htmlWebpackPlugin.options.token
+//- - url = 'https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt'
+- url = 'http://localhost:3000/?token_key=03xi9j76hxew6UG7to01tgtt'
+//- - url = 'http://localhost:3000'
+//- - getHeightDevice = window.innerHeight
+- getHeightDevice = 793
 
 doctype html
 html(lang='es')
@@ -11,15 +16,17 @@ html(lang='es')
   body
     header
       h2 Title from organization
-        href=`https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt`
+        span!= url
+        span!= getHeightDevice
       a.link(
+        href!= url
         target='_blank'
-        )!= token
+        )!= url
 
-    .iframe-container
-      //- src=`https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt`
+    #iframeContainer.iframe-container
       iframe(
-        src="https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt"
+        src!= url
         frameborder='0'
-        height='600'
+        width='100%'
+        height!= getHeightDevice
         )
