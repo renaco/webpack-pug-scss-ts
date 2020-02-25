@@ -14,15 +14,6 @@ html(lang='es')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     title Iframe responsive
   body
-    header
-      h2 Title from organization 
-        span!= url
-        span!= getHeightDevice
-      a.link(
-        href!= url
-        target='_blank'
-        )!= url
-
     #iframeContainer.iframe-container
       iframe(
         src!= url
