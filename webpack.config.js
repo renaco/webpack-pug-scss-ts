@@ -48,6 +48,19 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const compileTemplate = (fileName) => {
+  return new HtmlWebpackPlugin({
+    template: PATHS.src + '/views/' + fileName + '.pug',
+    filename: fileName + '.html',
+    inject: false,
+    baseUrl: process.env.BASE_URL,
+    inlineSource: '.(js|css)',
+    inject: false,
+    template: html,
+    token: process.env.TOKEN
+  })
+}
+
 module.exports = {
   entry:
     PATHS.src + '/scripts/index.ts'
@@ -106,13 +119,8 @@ module.exports = {
       exclude: /a\.ts|node_modules/,
       failOnError: true
     }),
-    new HtmlWebpackPlugin({
-      // baseUrl: process.env.BASE_URL,
-      inlineSource: '.(js|css)',
-      inject: false,
-      template: html,
-      // token: process.env.TOKEN
-    }),
+    compileTemplate('index'),
+    // compileTemplate('home'),
     new HtmlWebpackInlineSourcePlugin()
   ],
 

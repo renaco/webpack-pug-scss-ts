@@ -1,8 +1,6 @@
-//- - const baseUrl = self.htmlWebpackPlugin.options.baseUrl
-//- - const token = self.htmlWebpackPlugin.options.token
-- url = 'https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt'
-//- - url = 'http://localhost:3000/?token_key=03xi9j76hxew6UG7to01tgtt'
-//- - url = 'http://localhost:3000'
+//- - var baseUrl = self.htmlWebpackPlugin.options.baseUrl
+//- - var token = self.htmlWebpackPlugin.options.token
+- var baseUrl = 'https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt'
 //- - getHeightDevice = window.innerHeight
 - getHeightDevice = 793
 
@@ -16,7 +14,7 @@ html(lang='es')
   body(style='margin: 0px;')
     #iframeContainer.iframe-container
       iframe(
-        src!= url
+        src!= baseUrl
         frameborder='0'
         width='100%'
         height!= getHeightDevice
