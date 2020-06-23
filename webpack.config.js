@@ -124,7 +124,7 @@ module.exports = {
     new HtmlWebpackInlineSourcePlugin()
   ],
 
-  mode: 'production',
+  mode: 'development',
 
   devServer: {
     contentBase: PATHS.dist,
