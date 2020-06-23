@@ -1,21 +1,12 @@
-//- - var baseUrl = self.htmlWebpackPlugin.options.baseUrl
-//- - var token = self.htmlWebpackPlugin.options.token
-- var baseUrl = 'https://dev.golazzos.com/?token_key=mJ6psqPVh52WkuUwiTKoGwtt'
-//- - getHeightDevice = window.innerHeight
-- getHeightDevice = 793
-
 doctype html
 html(lang='es')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    title Iframe responsive
-  body(style='margin: 0px;')
-    #iframeContainer.iframe-container
-      iframe(
-        src!= baseUrl
-        frameborder='0'
-        width='100%'
-        height!= getHeightDevice
-        )
+    title Demo pug
+  body
+    h1 Demo pug
+    p With live reload
+
+    script(src="http://localhost:35729/livereload.js")

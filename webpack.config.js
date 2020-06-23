@@ -1,6 +1,7 @@
 require('dotenv').config()
 const webpack = require('webpack');
 const path = require('path');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 /*
  * We've enabled UglifyJSPlugin for you! This minifies your app
@@ -39,7 +40,6 @@ const html = PATHS.src + '/views/index.pug';
 *
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 /*
 //
 // Clean Dist
@@ -56,8 +56,7 @@ const compileTemplate = (fileName) => {
     baseUrl: process.env.BASE_URL,
     inlineSource: '.(js|css)',
     inject: false,
-    template: html,
-    token: process.env.TOKEN
+    template: html
   })
 }
 
@@ -108,6 +107,7 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new CleanWebpackPlugin({
       dry: true,
       cleanOnceBeforeBuildPatterns: PATHS.dist
@@ -119,9 +119,8 @@ module.exports = {
       exclude: /a\.ts|node_modules/,
       failOnError: true
     }),
+    new LiveReloadPlugin(),
     compileTemplate('index'),
-    // compileTemplate('home'),
-    new HtmlWebpackInlineSourcePlugin()
   ],
 
   mode: 'development',
