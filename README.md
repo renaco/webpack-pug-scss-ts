@@ -19,6 +19,8 @@ A webpack 4 boilerplate for building web apps.
 ## To Do
 In progress...
 
-[For iframe purpose set into apache, ngnix X-Frame-Options](https://stackoverflow.com/questions/27358966/how-to-set-x-frame-options-on-iframe)
 
-[for client use this chrome complement](https://chrome.google.com/webstore/search/X-Frame-Options?hl=en-US)
+## Add ons
+[For iframe purpose set into apache, nginx X-Frame-Options](https://stackoverflow.com/questions/27358966/how-to-set-x-frame-options-on-iframe)
+
+[For client use this chrome complement](https://chrome.google.com/webstore/search/X-Frame-Options?hl=en-US)

@@ -52,10 +52,7 @@ const compileTemplate = (fileName) => {
   return new HtmlWebpackPlugin({
     template: PATHS.src + '/views/' + fileName + '.pug',
     filename: fileName + '.html',
-    inject: false,
     baseUrl: process.env.BASE_URL,
-    inlineSource: '.(js|css)',
-    inject: false,
     template: html
   })
 }
@@ -83,7 +80,9 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+          }
         ]
       },
 
@@ -96,7 +95,7 @@ module.exports = {
 
       {
         test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader',
+        loader: 'ts-loader',
         exclude: /(node_modules)/
       }
     ]

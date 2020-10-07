@@ -3,25 +3,33 @@ body, html {
   padding: 0;
 }
 
-h2 {
+h1 {
+  margin: 0;
   word-wrap: break-all;
+  padding: 0;
+  color: red;
 }
 
 header {
+  align-items: center;
+  justify-content: center;
   height: 10vh;
+  background: green;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-.iframe-container {
-  overflow: hidden;
-  height: 100vh;
-  position: relative;
-  width: 100%;
-  iframe {
-    border: 0;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
+main {
+  margin: 10px;
+  padding: 0;
+}
+
+footer {
+  background: #000;
+  height: 100px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
