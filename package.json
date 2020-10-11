@@ -7,6 +7,7 @@
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "awesome-typescript-loader": "^5.2.1",
+    "browser-sync": "^2.26.12",
     "circular-dependency-plugin": "^5.2.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
@@ -30,20 +31,22 @@
     "sass-loader": "^10.0.2",
     "style-loader": "^1.3.0",
     "ts-loader": "^8.0.4",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "browser-sync-webpack-plugin": "^2.2.2",
     "live-server": "^1.2.1",
     "npm-check-updates": "^9.0.4",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "webpack-dev-server": "^3.11.0",
     "webpack-livereload-plugin": "^2.3.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --watch",
-    "server": "webpack-dev-server --mode=development --watch",
+    "start": "webpack && npm run dev",
+    "dev": "webpack-dev-server --mode=development --watch --progress --colors",
     "serve": "live-server ./dist",
+    "sync": "browser-sync start --proxy localhost:8081",
     "build": "webpack",
     "build:dev": "env-cmd ./.env webpack",
     "clean": "rm -rf node_modules/ && rm package-lock.json"

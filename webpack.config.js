@@ -2,6 +2,7 @@ require('dotenv').config()
 const webpack = require('webpack');
 const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 /*
  * We've enabled UglifyJSPlugin for you! This minifies your app
@@ -119,6 +120,11 @@ module.exports = {
       failOnError: true
     }),
     new LiveReloadPlugin(),
+    new BrowserSyncPlugin ({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost:8081'
+    }),
     compileTemplate('index'),
   ],
 
