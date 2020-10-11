@@ -1,3 +1,11 @@
+@import './sections/header';
+@import './sections/footer';
+@import './components/button';
+
+@import './config/helpers';
+
+@import './components/menu';
+
 body, html {
   margin: 0;
   padding: 0;
@@ -7,29 +15,10 @@ h1 {
   margin: 0;
   word-wrap: break-all;
   padding: 0;
-  color: red;
-}
-
-header {
-  align-items: center;
-  justify-content: center;
-  height: 10vh;
-  background: green;
-  margin: 0;
-  padding: 0;
-  display: flex;
+  color: orange;
 }
 
 main {
   margin: 10px;
   padding: 0;
-}
-
-footer {
-  background: #000;
-  height: 100px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

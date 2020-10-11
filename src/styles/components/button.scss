@@ -1,0 +1,27 @@
+.button {
+  padding: 10px;
+  background: #000;
+  color: azure;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    outline-offset: -4px;
+  }
+}
+
+.header__menu-button {
+  background: none;
+  border: none;
+  display: flex;
+  margin-left: auto;
+  position: relative;
+  z-index: 30;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M24 6H0V2h24v4zm0 4H0v4h24v-4zm0 8H0v4h24v-4z'/%3E%3C/svg%3E");
+  width: 35px;
+  height: 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  &.is-show {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 20.188l-8.315-8.209 8.2-8.282L20.188 0l-8.212 8.318L3.666.115 0 3.781l8.321 8.24-8.206 8.313L3.781 24l8.237-8.318 8.285 8.203L24 20.188z' fill='%23fff'/%3E%3C/svg%3E");
+  }
+}

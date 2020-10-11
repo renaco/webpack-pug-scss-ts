@@ -1,3 +1,4 @@
 import './../styles/main.scss';
+import { showMenu } from './menu';
 
-console.log('algas ');
+showMenu();

@@ -9,6 +9,14 @@ html(lang='es')
   body
     header
       h1 Example of page
+      nav#menu.header__menu-nav.is-hide
+        ul.header__menu-items
+          - for (var x = 0; x < 10; x++)
+            li.header__menu-item
+              a(href="javascript:;") item
+          -
+
+      button#menuButton.button.header__menu-button
     main
       h2
         | De lunes a viernes
@@ -16,6 +24,9 @@ html(lang='es')
         | 12:00 m - 8:00 p. m.
 
       p Quis ut minim non eiusmod aliqua qui duis incididunt consectetur cupidatat ipsum proident ipsum.
+
+    button.button
+      span Enter to my site
 
     footer
       p Este es el footer
