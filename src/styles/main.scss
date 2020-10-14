@@ -1,9 +1,10 @@
 @import './sections/header';
 @import './sections/footer';
-@import './components/button';
+@import './sections/slider';
 
 @import './config/helpers';
 
+@import './components/button';
 @import './components/menu';
 
 body, html {

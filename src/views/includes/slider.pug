@@ -1,0 +1,14 @@
+- let config = {}
+- config.items = 4
+
+section.home__slider
+  - for (var x = 0; x < config.items; x++)
+    article.home__slider-article
+      img(src='https://www.placecage.com/gif/320/500')
+  -
+
+  ul.home__slider-control
+    - for (var x = 0; x < config.items; x++)
+      li.home__slider-item
+        a.home__slider-link(href="")
+    -

@@ -1,0 +1,29 @@
+.home__slider {
+  position: relative;
+  height: 500px;
+}
+
+.home__slider-article {
+  position: absolute;
+}
+
+.home__slider-control {
+  position: absolute;
+  z-index: 8;
+  display: flex;
+  flex-direction: row;
+}
+
+.home__slider {
+  &-item {
+    list-style: none;
+  }
+  &-link {
+    background: white;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 4px;
+  }
+}

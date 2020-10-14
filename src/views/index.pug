@@ -11,12 +11,15 @@ html(lang='es')
       h1 Example of page
       nav#menu.header__menu-nav.is-hide
         ul.header__menu-items
-          - for (var x = 0; x < 10; x++)
+          - for (var x = 0; x < 5; x++)
             li.header__menu-item
               a(href="javascript:;") item
           -
 
       button#menuButton.button.header__menu-button
+
+    include ./includes/slider.pug
+
     main
       h2
         | De lunes a viernes
