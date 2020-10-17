@@ -42,11 +42,14 @@
     "webpack-cli": "3.3.12",
     "webpack-livereload-plugin": "^2.3.0"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "start": "webpack && npm run dev",
     "dev": "webpack-dev-server --mode=development --watch --progress --colors",
     "serve": "live-server ./dist",
-    "sync": "browser-sync start --proxy localhost:8081",
+    "sync": "browser-sync start --proxy localhost:8080",
     "build": "webpack",
     "build:dev": "env-cmd ./.env webpack",
     "clean": "rm -rf node_modules/ && rm package-lock.json"

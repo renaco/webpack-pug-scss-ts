@@ -123,7 +123,7 @@ module.exports = {
     new BrowserSyncPlugin ({
       host: 'localhost',
       port: 3000,
-      proxy: 'http://localhost:8081'
+      proxy: 'http://localhost:8080'
     }),
     compileTemplate('index'),
   ],
