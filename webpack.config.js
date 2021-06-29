@@ -53,8 +53,7 @@ const compileTemplate = (fileName) => {
   return new HtmlWebpackPlugin({
     template: PATHS.src + '/views/' + fileName + '.pug',
     filename: fileName + '.html',
-    baseUrl: process.env.BASE_URL,
-    template: html
+    baseUrl: process.env.BASE_URL
   })
 }
 
